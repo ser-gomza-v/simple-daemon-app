@@ -22,7 +22,7 @@ vendor/bin/doctrine-migrations migrations:migrate
 php -S localhost:8282 -t public/
 ```
 
-###При необходимости поднять базу, можно воспользоваться docker-compose:
+### При необходимости поднять базу, можно воспользоваться docker-compose:
 
 ```
 docker-compose -f data/docker-compose/stack.yml up
