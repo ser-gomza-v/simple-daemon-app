@@ -1,0 +1,28 @@
+{
+    "name": "ser-gomza-v/simple-daemon-app",
+    "description": "Simple daemon app",
+    "authors": [
+        {
+            "name": "Sergey Gomzyakov",
+            "email": "sgomzyakov@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "SimpleDaemon\\": "src/"
+        }
+    },
+    "require": {
+        "php" : "^7.2",
+        "ext-json": "*",
+        "symfony/routing": "^4.3",
+        "symfony/http-foundation": "^4.3",
+        "doctrine/orm": "^2.6.2",
+        "doctrine/migrations": "^2.2",
+        "symfony/dependency-injection": "^4.3",
+        "symfony/debug": "^4.3",
+        "symfony/console": "^4.3",
+        "php-ai/php-ml": "dev-master"
+    }
+}
