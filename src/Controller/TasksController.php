@@ -73,10 +73,9 @@ class TasksController
                     'data' => [
                         'status' => 'success'
                     ],
-                    200
+                    "code" => 200,
                 ]);
 
-                return $response;
             } catch (\Exception $e) {
                 $response = new JsonResponse([
                     'data' => [
@@ -84,7 +83,7 @@ class TasksController
                         'message' => $e->getMessage(),
                         'trace' => $e->getTraceAsString(),
                     ],
-                    500
+                    "code" => 500
                 ]);
             }
         } else {
@@ -93,7 +92,7 @@ class TasksController
                     'status' => 'failed',
                     'message' => 'Укажите обязательные поля'
                 ],
-                400
+                "code" => 400
             ]);
         }
 

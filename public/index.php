@@ -16,7 +16,7 @@ try {
         $error = error_get_last();
 
         if ($error !== NULL && in_array($error['type'], array(E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR, E_COMPILE_WARNING,E_RECOVERABLE_ERROR))) {
-            $response = new JsonResponse(['error' => $error['message']], 500);
+            $response = new JsonResponse(['errors' => json_encode($error, JSON_UNESCAPED_UNICODE)], 500);
 
             $response->send();
         }
@@ -54,11 +54,11 @@ try {
     $response = $parameters['controller']->{$parameters['method'] . 'Action'}($request);
 
 } catch (ResourceNotFoundException $exception) {
-    file_put_contents('/tmp/ResourceNotFoundException.log', $exception->getMessage() . $exception->getTraceAsString(), FILE_APPEND);
+    file_put_contents(__DIR__ . '/../var/log/ResourceNotFoundException.log', $exception->getMessage() . $exception->getTraceAsString() . PHP_EOL . $exception->getTraceAsString(), FILE_APPEND);
     $response = new JsonResponse(['error' => 'Not found'], 404);
 } catch (Exception $exception) {
-    file_put_contents('/tmp/Exception.log', $exception->getMessage(), FILE_APPEND);
-    $response = new JsonResponse(['error' => 'An error occurredв'], 500);
+    file_put_contents(__DIR__ . '/../var/log/Exception.log', $exception->getMessage() . $exception->getTraceAsString() . PHP_EOL, FILE_APPEND);
+    $response = new JsonResponse(['error' => 'An error occurred'], 500);
 }
 if (is_array($cors) && count($cors)){
     foreach ($cors as $headerName => $headerValues) {

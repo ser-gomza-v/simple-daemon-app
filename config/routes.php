@@ -20,7 +20,7 @@ $routes->add(
         [],
         '',
         'Http',
-        'Get'
+        'Post'
     )
 );
 

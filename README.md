@@ -53,7 +53,7 @@ docker inspect <container-id>
 chat
 
 ```
-curl --location --request GET 'localhost:8282/api/generate-task' \
+curl --location --request POST 'localhost:8282/api/generate-task' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "update_id": 62954904,
