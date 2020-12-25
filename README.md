@@ -50,7 +50,6 @@ docker inspect <container-id>
 
 * POST /api/generate-task
 
-chat
 
 ```
 curl --location --request POST 'localhost:8282/api/generate-task' \
